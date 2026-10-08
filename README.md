@@ -10,18 +10,6 @@ A React + Vite + Bootstrap website for vFDB Virtual Airline.
 - JavaScript (JSX)
 - Custom CSS animations
 
-## Sections
-
-- Home
-- About vFDB
-- Fleet
-- Route Network
-- Pilot Center
-- Documents
-- FAQ
-- Partners
-- Community
-
 ## Run locally
 
 ```bash
