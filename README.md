@@ -33,6 +33,6 @@ npm run preview
 
 ## Notes
 
-The website uses a single-page layout with reusable React components.
-Bootstrap and custom CSS handle responsive styling.
-Never commit secrets, credentials, or private environment configuration to the repository.
+- The website uses a single-page layout with reusable React components.
+- Bootstrap and custom CSS handle responsive styling.
+- Do not commit secrets, credentials, or private environment configuration to the repository.
