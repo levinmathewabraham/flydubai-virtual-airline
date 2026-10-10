@@ -553,8 +553,6 @@ function Partners({ theme }) {
                     src={
                       theme === "light" ? partner.logo.light : partner.logo.dark
                     }
-                    loading="lazy"
-                    decoding="async"
                     alt={partner.name}
                   />
                 </a>
@@ -583,8 +581,6 @@ function Partners({ theme }) {
                         ? codeshare.logo.light
                         : codeshare.logo.dark
                     }
-                    loading="lazy"
-                    decoding="async"
                     alt={codeshare.name}
                   />
                 </a>
