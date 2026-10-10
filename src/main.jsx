@@ -518,7 +518,7 @@ function Documents() {
               vAMSYS Hangar <span>↗</span>
             </a>
             <a
-              href="https://drive.google.com/drive/folders/1O5_cxABYcZ-akbJrymHOLE9nJTmFWDxM"
+              href="https://drive.google.com/file/d/1sGHoeyouRFM4awgvgWbMJd3rvwzQ9qX8/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="btn btn-vfdb-ghost"
