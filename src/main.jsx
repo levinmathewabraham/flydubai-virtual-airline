@@ -87,10 +87,26 @@ const partners = [
 const codeshareAirlines = [
   {
     name: "Indigo Virtual",
-    url: "https://vamsys.io/register/ifly",
+    url: "https://indigo-virtual.net/",
     logo: {
       light: "/brand/indigo-virtual-white.png",
       dark: "/brand/indigo-virtual-dark.png",
+    },
+  },
+  {
+    name: "Air India Group Virtual",
+    url: "https://airindiagroupvirtual.net/",
+    logo: {
+      light: "/brand/air-india-virtual-light.png",
+      dark: "/brand/air-india-virtual-dark.png",
+    },
+  },
+  {
+    name: "Saudia Virtual",
+    url: "https://www.saudiava.org/",
+    logo: {
+      light: "/brand/saudia-virtual-light.png",
+      dark: "/brand/saudia-virtual-dark.png",
     },
   },
 ];
@@ -114,13 +130,75 @@ const faqs = [
   ],
 ];
 
+const socialLinks = [
+  {
+    name: "Discord",
+    url: "https://discord.gg/5fU4NVjDC3",
+    icon: "discord",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@virtual.fdb",
+    icon: "youtube",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/virtual.fdb/",
+    icon: "instagram",
+  },
+];
+
+function SocialLinks({ className = "" }) {
+  return (
+    <div className={`social-links ${className}`}>
+      {socialLinks.map(({ name, url, icon }) => (
+        <a
+          key={name}
+          href={url}
+          className="social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit vFDB on ${name}`}
+          title={name}
+        >
+          {icon === "discord" && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M19.73 5.35a19.4 19.4 0 0 0-4.78-1.48l-.6 1.22a18 18 0 0 0-4.7 0l-.6-1.22a19.4 19.4 0 0 0-4.78 1.48C1.24 9.8.42 14.14.83 18.42a19.6 19.6 0 0 0 5.87 2.96l1.27-2.07a12.8 12.8 0 0 1-2-.97l.49-.38c3.85 1.8 8.02 1.8 11.82 0l.5.38c-.64.38-1.31.7-2.01.97l1.27 2.07a19.6 19.6 0 0 0 5.87-2.96c.48-4.96-.82-9.26-4.18-13.07ZM8.55 15.1c-1.15 0-2.1-1.05-2.1-2.34s.92-2.34 2.1-2.34 2.12 1.06 2.1 2.34c0 1.29-.93 2.34-2.1 2.34Zm6.9 0c-1.15 0-2.1-1.05-2.1-2.34s.92-2.34 2.1-2.34 2.12 1.06 2.1 2.34c0 1.29-.92 2.34-2.1 2.34Z"
+              />
+            </svg>
+          )}
+
+          {icon === "youtube" && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.05 0 12 0 12s0 3.95.5 5.8a3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.95 24 12 24 12s0-3.95-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"
+              />
+            </svg>
+          )}
+
+          {icon === "instagram" && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm5.7-3.4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Z"
+              />
+            </svg>
+          )}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function Navbar({ theme, toggleTheme }) {
   const [open, setOpen] = useState(false);
   const links = [
     ["About", "about"],
     ["Fleet", "fleet"],
     ["Routes", "routes"],
-    ["Pilot Center", "pilot-center"],
     ["Documents", "documents"],
     ["FAQ", "faq"],
     ["Community", "community"],
@@ -164,6 +242,9 @@ function Navbar({ theme, toggleTheme }) {
                 </a>
               </li>
             ))}
+            <li className="nav-item ms-lg-2 mt-3 mt-lg-0">
+              <SocialLinks />
+            </li>
             <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
               <button
                 className="theme-toggle"
@@ -229,7 +310,7 @@ function Hero({ theme }) {
         <div className="row align-items-center min-vh-100 hero-row">
           <div className="col-lg-8 col-xl-7">
             <div className="hero-kicker">
-              <span /> Virtual Airline · Dubai
+              <span /> Virtual Airline · Flydubai
             </div>
             <img
               className="hero-logo"
@@ -269,14 +350,79 @@ function Hero({ theme }) {
             </div>
             <div className="hero-meta">
               <span>OMDB / DXB</span>
-              <i /> <span>FLYDUBAI</span>
-              <i /> <span>فلاي دبي</span>
+              <i /> <span>CALLSIGN: SKYDUBAI</span>
+              <i /> <span>FDB / FZ</span>
             </div>
           </div>
         </div>
       </div>
       <div className="hero-scroll">
         <span /> Scroll to explore
+      </div>
+    </section>
+  );
+}
+
+function Partners({ theme }) {
+  return (
+    <section className="partners-section section-pad-sm">
+      <div className="container">
+        <div className="row g-5">
+          <div className="col-lg-6">
+            <div className="partner-label">Partners</div>
+            <div className="partner-logos">
+              {partners.map((partner) => (
+                <a
+                  key={partner.name}
+                  className="partner-logo"
+                  href={partner.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={partner.name}
+                >
+                  <img
+                    src={
+                      theme === "light" ? partner.logo.light : partner.logo.dark
+                    }
+                    alt={partner.name}
+                  />
+                </a>
+              ))}
+            </div>
+            <p>
+              Infrastructure and platform partners that power our operations.
+            </p>
+          </div>
+
+          <div className="col-lg-6">
+            <div className="partner-label">Codeshare Airlines</div>
+            <div className="codeshare-logos">
+              {codeshareAirlines.map((codeshare) => (
+                <a
+                  key={codeshare.name}
+                  className="partner-logo"
+                  href={codeshare.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={codeshare.name}
+                >
+                  <img
+                    src={
+                      theme === "light"
+                        ? codeshare.logo.light
+                        : codeshare.logo.dark
+                    }
+                    alt={codeshare.name}
+                  />
+                </a>
+              ))}
+            </div>
+            <p>
+              Working together across the virtual skies through codeshare
+              partnerships.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -424,77 +570,6 @@ function Routes({ theme }) {
   );
 }
 
-function PilotCenter() {
-  return (
-    <section id="pilot-center" className="section-pad pilot-section">
-      <div className="container">
-        <div className="pilot-card">
-          <div className="pilot-glow" />
-          <div className="row align-items-center g-5 position-relative z-1">
-            <div className="col-lg-6">
-              <SectionHeading
-                eyebrow="Pilot Center"
-                title="Your flight. Your cockpit. Your vFDB."
-              >
-                We are a <span>vAMSYS</span> based virtual airline and we use
-                vAMSYS Pegasus for ACARS reporting. Access your crew portal,
-                manage your virtual operations, and stay connected with the vFDB
-                community.
-              </SectionHeading>
-              <div className="d-flex flex-wrap gap-3 pt-2">
-                <a
-                  href={crewLogin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-vfdb-primary"
-                >
-                  Open Crew Portal ↗
-                </a>
-                <a href="#documents" className="btn btn-vfdb-ghost">
-                  Pilot Resources ↓
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="flight-deck-card">
-                <div className="deck-header">
-                  <span>vFDB / PILOT CENTER</span>
-                  <b>ONLINE</b>
-                </div>
-                <div className="deck-route">
-                  <div>
-                    <small>ORIGIN</small>
-                    <strong>OMDB</strong>
-                    <span>Dubai/DXB</span>
-                  </div>
-                  <div className="deck-arrow">→</div>
-                  <div className="text-end">
-                    <small>CALLSIGN</small>
-                    <strong>FDB</strong>
-                    <span>SKYDUBAI/FZ</span>
-                  </div>
-                </div>
-                <div className="deck-progress">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <div className="deck-footer">
-                  <span>VAMSYS</span>
-                  <span>CREW PORTAL</span>
-                  <span>DASHBOARD</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Documents() {
   return (
     <section id="documents" className="section-pad documents-section">
@@ -527,71 +602,6 @@ function Documents() {
             </a>
           </div>
         </SectionHeading>
-      </div>
-    </section>
-  );
-}
-
-function Partners({ theme }) {
-  return (
-    <section className="partners-section section-pad-sm">
-      <div className="container">
-        <div className="row g-5">
-          <div className="col-lg-6">
-            <div className="partner-label">Partners</div>
-            <div className="partner-logos">
-              {partners.map((partner) => (
-                <a
-                  key={partner.name}
-                  className="partner-logo"
-                  href={partner.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={partner.name}
-                >
-                  <img
-                    src={
-                      theme === "light" ? partner.logo.light : partner.logo.dark
-                    }
-                    alt={partner.name}
-                  />
-                </a>
-              ))}
-            </div>
-            <p>
-              Infrastructure and platform partners that power our operations.
-            </p>
-          </div>
-
-          <div className="col-lg-6">
-            <div className="partner-label">Codeshare Airlines</div>
-            <div className="codeshare-logos">
-              {codeshareAirlines.map((codeshare) => (
-                <a
-                  key={codeshare.name}
-                  className="partner-logo"
-                  href={codeshare.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={codeshare.name}
-                >
-                  <img
-                    src={
-                      theme === "light"
-                        ? codeshare.logo.light
-                        : codeshare.logo.dark
-                    }
-                    alt={codeshare.name}
-                  />
-                </a>
-              ))}
-            </div>
-            <p>
-              Working together across the virtual skies through codeshare
-              partnerships.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -698,6 +708,10 @@ function Footer({ theme }) {
               <a href="#faq">FAQ</a>
               <a href="#community">Community</a>
             </div>
+            <div className="footer-social">
+              <span className="footer-social-label">Connect with us</span>
+              <SocialLinks />
+            </div>
             <div className="text-lg-end">
               <small>
                 &copy; {new Date().getFullYear()} vFDB Virtual Airline. This
@@ -728,12 +742,11 @@ function App() {
         toggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
       />
       <Hero theme={theme} />
+      <Partners theme={theme} />
       <About />
       <Fleet />
       <Routes theme={theme} />
-      <PilotCenter />
       <Documents />
-      <Partners theme={theme} />
       <FAQ />
       <Community />
       <Footer theme={theme} />

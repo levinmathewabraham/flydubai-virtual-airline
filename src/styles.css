@@ -340,16 +340,16 @@ a {
 .section-pad-sm {
   padding: 70px 0;
 }
-.about-section,
-.pilot-section,
-.faq-section {
+.partners-section,
+.routes-section {
   background: var(--bg);
 }
-.fleet-section,
+.about-section,
 .documents-section {
   background: var(--bg-alt);
 }
-.routes-section {
+.fleet-section,
+.faq-section {
   background: var(--surface);
 }
 .section-heading {
@@ -383,6 +383,38 @@ a {
   line-height: 1.9;
   max-width: 620px;
 }
+
+.partners-section {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.partner-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.partner-logo {
+  display: inline-block;
+  opacity: 0.75;
+  transition: 0.3s;
+  padding: 10px;
+}
+.partner-logo:hover {
+  opacity: 1;
+}
+.partner-logo img {
+  width: 130px;
+  height: auto;
+}
+.partners-section p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+
 .about-signature {
   display: flex;
   align-items: center;
@@ -602,127 +634,6 @@ a {
   object-fit: cover;
 }
 
-.pilot-card {
-  position: relative;
-  overflow: hidden;
-  padding: 70px;
-  border: 1px solid var(--line);
-  background: linear-gradient(110deg, var(--surface-2), var(--surface));
-  box-shadow: var(--shadow);
-}
-.pilot-card:before {
-  content: "vFDB";
-  position: absolute;
-  right: -35px;
-  top: -105px;
-  font-family: var(--display-font);
-  font-size: 380px;
-  line-height: 1;
-  color: rgba(255, 130, 0, 0.035);
-  font-weight: 700;
-}
-.pilot-glow {
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  right: -180px;
-  bottom: -240px;
-  background: radial-gradient(circle, rgba(255, 130, 0, 0.16), transparent 65%);
-}
-.flight-deck-card {
-  border: 1px solid var(--line-strong);
-  background: var(--bg);
-  padding: 23px;
-  box-shadow: var(--shadow);
-}
-.deck-header,
-.deck-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-}
-.deck-header b {
-  color: var(--orange);
-}
-.deck-route {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px 10px 40px;
-}
-.deck-route small {
-  display: block;
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 0.12em;
-}
-.deck-route strong {
-  display: block;
-  font-family: var(--display-font);
-  font-size: 52px;
-  font-weight: 500;
-}
-.deck-route span {
-  display: block;
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.deck-arrow {
-  color: var(--orange);
-  font-size: 30px;
-}
-.deck-progress {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 22px;
-}
-.deck-progress span {
-  height: 3px;
-  flex: 1;
-  background: var(--line);
-}
-.deck-progress span:nth-child(1),
-.deck-progress span:nth-child(2),
-.deck-progress span:nth-child(3) {
-  background: var(--orange);
-}
-
-.partners-section {
-  background: var(--surface);
-  text-align: center;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.partner-label {
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.partner-logo {
-  display: inline-block;
-  opacity: 0.75;
-  transition: 0.3s;
-  padding: 10px;
-}
-.partner-logo:hover {
-  opacity: 1;
-}
-.partner-logo img {
-  width: 130px;
-  height: auto;
-}
-.partners-section p {
-  font-size: 12px;
-  color: var(--muted);
-  margin: 12px 0 0;
-}
-
 .vfdb-accordion .accordion-item {
   background: transparent;
   border: 0;
@@ -830,6 +741,87 @@ a {
   font-size: 10px;
 }
 
+/* Social media icons */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.social-link:hover {
+  color: #fff;
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* Footer social links */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.footer-social-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-social .social-link {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar .social-links {
+    justify-content: flex-start;
+    margin: 10px 0;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .social-links {
+    gap: 10px;
+  }
+
+  .footer-social {
+    gap: 12px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .vfdb-navbar {
     background: var(--nav-bg);
@@ -842,9 +834,6 @@ a {
   }
   .section-pad {
     padding: 90px 0;
-  }
-  .pilot-card {
-    padding: 45px 30px;
   }
   .footer-links {
     justify-content: flex-start;
@@ -884,15 +873,6 @@ a {
   }
   .route-image {
     min-height: 380px;
-  }
-  .pilot-card {
-    padding: 38px 22px;
-  }
-  .deck-route {
-    padding: 35px 5px;
-  }
-  .deck-route strong {
-    font-size: 42px;
   }
   .vfdb-accordion .accordion-button {
     font-size: 22px;
