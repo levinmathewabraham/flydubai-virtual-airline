@@ -109,6 +109,14 @@ const codeshareAirlines = [
       dark: "/brand/saudia-virtual-dark.png",
     },
   },
+  {
+    name: "Virtual Etihad",
+    url: "https://www.virtualetihad.com/",
+    logo: {
+      light: "/brand/vetd-logo-light.png",
+      dark: "/brand/vetd-logo-light.png",
+    },
+  },
 ];
 
 const faqs = [
@@ -138,7 +146,7 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    url: "https://www.youtube.com/@virtual.fdb",
+    url: "https://www.youtube.com/@virtualflydubai",
     icon: "youtube",
   },
   {
@@ -365,7 +373,7 @@ function Hero({ theme }) {
 
 function Partners({ theme }) {
   return (
-    <section className="partners-section section-pad-sm">
+    <section id="partners" className="partners-section section-pad-sm">
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6">
@@ -703,7 +711,6 @@ function Footer({ theme }) {
               <a href="#about">About</a>
               <a href="#fleet">Fleet</a>
               <a href="#routes">Routes</a>
-              <a href="#pilot-center">Pilot Center</a>
               <a href="#documents">Documents</a>
               <a href="#faq">FAQ</a>
               <a href="#community">Community</a>
